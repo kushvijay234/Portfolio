@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vijay Kumar Kushwaha — MERN Stack Developer</title>
+  <meta name="description"
+    content="MERN Stack Developer specializing in React, Node.js, Express, MongoDB. Portfolio, projects, experience, and contact." />
+  <meta property="og:title" content="Vijay Kumar Kushwaha — MERN Stack Developer" />
+  <meta property="og:description"
+    content="Full Stack Developer specializing in the MERN Stack with measurable results and clean UI/UX." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config (accent colors + font)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            },
+          },
+          boxShadow: {
+            'card': '0 10px 30px rgba(0,0,0,0.08)',
+          },
+        },
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial'],
+        },
+      },
+      darkMode: 'class',
+    }
+  </script>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Favicon (open-source emoji style) -->
+  <link rel="icon" href="https://unpkg.com/emoji-datasource-apple/img/apple/64/1f4bb.png" />
+</head>
+
+<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+  <!-- Header -->
+  <header
+    class="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="#" class="flex items-center gap-3 group">
+          <span
+            class="font-semibold tracking-tight group-hover:text-brand-600 dark:group-hover:text-brand-400">Portfolio</span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition">About</a>
+          <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Projects</a>
+          <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Experience</a>
+          <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Skills</a>
+          <a href="#certifications" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Certifications</a>
+          <a href="#education" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Education</a>
+          <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <!-- Dark mode toggle -->
+          <button id="themeToggle" class="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
+            aria-label="Toggle theme">
+            <!-- Heroicon: Sun/Moon -->
+            <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M12 3v2m0 14v2m7-9h2M3 12H1m16.95 6.95 1.414 1.414M4.636 4.636 3.222 3.222m14.142 0 1.414 1.414M4.636 19.364 3.222 20.778M12 8a4 4 0 100 8 4 4 0 000-8z" />
+            </svg>
+            <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+          </button>
+
+          <!-- Mobile menu -->
+          <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
+            aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile nav drawer -->
+      <div id="mobileNav" class="md:hidden hidden pb-4">
+        <nav class="grid gap-2 text-sm">
+          <a href="#about" class="px-2 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
+          <a href="#projects" class="px-2 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800">Projects</a>
+          <a href="#experience" class="px-2 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800">Experience</a>
+          <a href="#skills" class="px-2 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800">Skills</a>
+          <a href="#certifications"
+            class="px-2 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800">Certifications</a>
+          <a href="#education" class="px-2 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800">Education</a>
+          <a href="#contact" class="px-2 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-50 to-white dark:from-slate-900 dark:to-slate-950">
+    </div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <span
+            class="inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full bg-brand-100 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300 ring-1 ring-brand-500/20">
+            <span class="inline-block h-2 w-2 rounded-full bg-brand-500"></span>
+            Open to opportunities
+          </span>
+          <h1 class="mt-4 text-3xl sm:text-5xl font-extrabold tracking-tight">
+            Hi, I’m Vijay — MERN Stack Developer
+          </h1>
+          <p class="mt-4 text-slate-600 dark:text-slate-300">
+            I build responsive, scalable web apps with measurable outcomes: faster development cycles, optimized APIs,
+            and crash‑free UX.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="mailto:kushwahavijay234@gmail.com"
+              class="inline-flex items-center gap-2 rounded-md bg-brand-600 px-4 py-2 text-white hover:bg-brand-700 transition">
+              <!-- Heroicon: Paper Airplane -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12l14-7-7 14-2-5-5-2z" />
+              </svg>
+              Get in touch
+            </a>
+            <a href="./assets/Vijay_Kushwaha_resume.pdf" download
+              class="inline-flex items-center gap-2 rounded-md border border-slate-300 dark:border-slate-700 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+              <!-- Heroicon: Document Download -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M12 16v-4m0 4l-2-2m2 2l2-2m-6 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              Download Resume
+            </a>
+            <a href="#projects"
+              class="inline-flex items-center gap-2 rounded-md border border-brand-200 dark:border-brand-800 px-4 py-2  dark:hover:bg-brand-950 transition">
+              <!-- Heroicon: Command Line -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M8 9l3 3-3 3M13 15h3M3 5h18v14H3z" />
+              </svg>
+              View projects
+            </a>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-300">
+            <div class="flex items-center gap-2">
+              <!-- Heroicon: Map Pin -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M12 11a4 4 0 100-8 4 4 0 000 8zm0 0c-5 0-9 2.5-9 5.5V19h18v-2.5c0-3-4-5.5-9-5.5z" />
+              </svg>
+              Kanpur, Uttar Pradesh, India
+            </div>
+            <div class="flex items-center gap-2">
+              <!-- Heroicon: Inbox -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M20 13V7a2 2 0 00-2-2H6a2 2 0 00-2 2v6m16 0h-4l-2 3h-4l-2-3H4m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5" />
+              </svg>
+              kushwahavijay234@gmail.com
+            </div>
+            <div class="flex items-center gap-2">
+              <!-- Heroicon: Phone -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M3 5a2 2 0 012-2h1a2 2 0 012 2v1c0 .5-.2 1-.6 1.4L6.6 9.2a16 16 0 006.2 6.2l1.8-1.8c.4-.4.9-.6 1.4-.6h1a2 2 0 012 2v1a2 2 0 01-2 2h-.5C9.6 23 1 14.4 1.6 5.5 1.7 4.7 2.3 4 3.1 4H3a2 2 0 010 1z" />
+              </svg>
+              +91 6387501137
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div
+            class="absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-tr from-brand-200/50 to-sky-100 dark:from-brand-900/20 dark:to-slate-900 blur-2xl">
+          </div>
+          <img class="w-full max-w-md mx-auto rounded-2xl shadow-card ring-1 ring-slate-200/60 dark:ring-slate-800"
+            src="./assets//profile.jpg" alt="Vijay Kumar Kushwaha"
+            onerror="this.src='https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=1200&auto=format&fit=crop';" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 bg-white dark:bg-slate-950 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+
+        <!-- Left column: Image -->
+        <div class="relative">
+          <div
+            class="absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-tr from-brand-200/50 to-sky-100 dark:from-brand-900/20 dark:to-slate-900 blur-2xl">
+          </div>
+          <img src="./assets/19362653.jpg" alt="Developer vector"
+            class="w-full max-w-md mx-auto rounded-2xl shadow-card ring-1 ring-slate-200/60 dark:ring-slate-800" />
+        </div>
+
+        <!-- Right column: Info -->
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight">About Me</h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+            I'm <span class="font-semibold text-brand-600 dark:text-brand-400">Vijay Kumar Kushwaha</span>, a Full Stack
+            Developer focused on the MERN stack. I build responsive, scalable web apps with clean architecture and
+            measurable results.
+          </p>
+
+          <ul class="mt-6 space-y-4 text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-3">
+              <svg class="h-5 w-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
+              </svg>
+              Delivered 4+ full-stack apps with 0% crash rates and ~40% API optimization.
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="h-5 w-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
+              </svg>
+              Designed reusable UI components and modular file structures.
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="h-5 w-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
+              </svg>
+              Passionate about clean UX, backend integration, and professional polish.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="text-2xl font-bold">Projects</h2>
+        <a href="https://github.com/kushvijay234" target="_blank" rel="noopener"
+          class="text-sm text-brand-700 dark:text-brand-300 hover:underline">View GitHub</a>
+      </div>
+
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Voucher Receipt App -->
+        <article
+          class="group rounded-2xl border border-slate-200/70 dark:border-slate-800 p-5 hover:shadow-card transition">
+          <div class="aspect-[16/9] overflow-hidden rounded-lg ring-1 ring-slate-200/60 dark:ring-slate-800">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop"
+              class="h-full w-full object-cover group-hover:scale-[1.02] transition" alt="Voucher app" />
+          </div>
+          <h3 class="mt-4 font-semibold">Voucher Receipt App</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            Voucher management with create/list/print, REST APIs, UUID IDs, xlsx persistence (1,000+ records),
+            print‑ready receipts.
+          </p>
+          <ul class="mt-3 flex flex-wrap gap-2 text-[11px]">
+            <li class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">React</li>
+            <li class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">Node/Express</li>
+            <li class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">Vite</li>
+            <li class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">xlsx</li>
+          </ul>
+          <div class="mt-4 flex gap-3">
+            <a href="https://github.com/kushvijay234/voucher-receipt-app" target="_blank" rel="noopener"
+              class="text-sm inline-flex items-center gap-1 hover:underline">
+              <span>Code</span>
+              <!-- Heroicon: Arrow Top Right -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Movie Explorer App -->
+        <article
+          class="group rounded-2xl border border-slate-200/70 dark:border-slate-800 p-5 hover:shadow-card transition">
+          <div class="aspect-[16/9] overflow-hidden rounded-lg ring-1 ring-slate-200/60 dark:ring-slate-800">
+            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1200&auto=format&fit=crop"
+              class="h-full w-full object-cover group-hover:scale-[1.02] transition" alt="Movie Explorer app" />
+          </div>
+          <h3 class="mt-4 font-semibold">Movie Explorer App</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            Responsive movie search using Watchmode API (4000+ records), debounced input (500ms), modular components,
+            zero‑crash fallbacks.
+          </p>
+          <ul class="mt-3 flex flex-wrap gap-2 text-[11px]">
+            <li class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">React</li>
+            <li class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">Tailwind</li>
+            <li class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">Watchmode API</li>
+          </ul>
+          <div class="mt-4 flex gap-3">
+            <a href="https://github.com/kushvijay234/movieapp" target="_blank" rel="noopener"
+              class="text-sm inline-flex items-center gap-1 hover:underline">
+              <span>Code</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Tourism Web Page -->
+        <article
+          class="group rounded-2xl border border-slate-200/70 dark:border-slate-800 p-5 hover:shadow-card transition">
+          <div class="aspect-[16/9] overflow-hidden rounded-lg ring-1 ring-slate-200/60 dark:ring-slate-800">
+            <img src="./assets/Tourism.jpeg" class="h-full w-full object-cover group-hover:scale-[1.02] transition"
+              alt="Tourism Web Page" />
+          </div>
+          <h3 class="mt-4 font-semibold">Tourism Web Page</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            Fully responsive tourism site with 10+ destinations, optimized assets (~30% faster loads), improved SEO
+            visibility.
+          </p>
+          <ul class="mt-3 flex flex-wrap gap-2 text-[11px]">
+            <li class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">HTML</li>
+            <li class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">CSS</li>
+            <li class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">JavaScript</li>
+          </ul>
+          <div class="mt-4 flex gap-3">
+            <a href="https://github.com/kushvijay234/Tourism" target="_blank" rel="noopener"
+              class="text-sm inline-flex items-center gap-1 hover:underline">
+              <span>Code</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- GitHub Finder -->
+        <article
+          class="group rounded-2xl border border-slate-200/70 dark:border-slate-800 p-5 hover:shadow-card transition">
+          <div class="aspect-[16/9] overflow-hidden rounded-lg ring-1 ring-slate-200/60 dark:ring-slate-800">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop"
+              class="h-full w-full object-cover group-hover:scale-[1.02] transition" alt="GitHub Finder" />
+          </div>
+          <h3 class="mt-4 font-semibold">GitHub Finder App</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            Real‑time GitHub user search with REST API, repositories, followers, and robust error handling (0% crashes
+            in testing).
+          </p>
+          <ul class="mt-3 flex flex-wrap gap-2 text-[11px]">
+            <li class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">HTML/CSS</li>
+            <li class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">JavaScript</li>
+            <li class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">GitHub API</li>
+          </ul>
+          <div class="mt-4 flex gap-3">
+            <a href="https://github.com/kushvijay234/githubFinder" target="_blank" rel="noopener"
+              class="text-sm inline-flex items-center gap-1 hover:underline">
+              <span>Code</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="py-20 bg-white dark:bg-slate-950 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold tracking-tight text-center">Experience</h2>
+
+      <div class="mt-12 space-y-10">
+        <!-- GeeksforGeeks Internship -->
+        <div class="relative border-l-4 border-brand-500 pl-6">
+          <div class="absolute -left-2 top-0 h-4 w-4 rounded-full bg-brand-500 ring-2 ring-white dark:ring-slate-950">
+          </div>
+          <div
+            class="bg-slate-50 dark:bg-slate-900 rounded-xl shadow-card ring-1 ring-slate-200/60 dark:ring-slate-800 p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <h3 class="text-lg font-semibold">MERN Stack Intern — GeeksforGeeks</h3>
+              <span class="text-sm text-slate-500 dark:text-slate-400">June 2025 – Sept 2025</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+              Built full-stack applications using MongoDB, Express.js, React.js, and Node.js. Delivered optimized APIs,
+              reusable UI components, and crash-free deployments.
+            </p>
+            <ul class="mt-4 grid gap-2 text-sm list-disc pl-5 text-slate-600 dark:text-slate-300">
+              <li>Designed RESTful APIs and integrated JWT-based authentication.</li>
+              <li>Improved development speed by ~25% through modular architecture.</li>
+              <li>Collaborated in Agile sprints and Git workflows with CI/CD pipelines.</li>
+              <li>Handled backend debugging, frontend responsiveness, and deployment.</li>
+            </ul>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span
+                class="px-2 py-1 rounded bg-brand-100 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300">React</span>
+              <span
+                class="px-2 py-1 rounded bg-brand-100 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300">Node.js</span>
+              <span
+                class="px-2 py-1 rounded bg-brand-100 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300">Express</span>
+              <span
+                class="px-2 py-1 rounded bg-brand-100 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300">MongoDB</span>
+              <span
+                class="px-2 py-1 rounded bg-brand-100 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300">JWT</span>
+              <span
+                class="px-2 py-1 rounded bg-brand-100 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300">Git</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Future Experience Placeholder -->
+        <!-- <div class="relative border-l-4 border-slate-300 dark:border-slate-700 pl-6">
+        <div class="absolute -left-2 top-0 h-4 w-4 rounded-full bg-slate-300 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-950"></div>
+        <div class="bg-slate-50 dark:bg-slate-900 rounded-xl ring-1 ring-slate-200/60 dark:ring-slate-800 p-6">
+          <h3 class="text-lg font-semibold text-slate-400 dark:text-slate-500">Your Next Role</h3>
+          <p class="mt-2 text-sm text-slate-400 dark:text-slate-500 italic">Ready to add your next achievement here — freelance, full-time, or open-source.</p>
+        </div>
+      </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-20 bg-white dark:bg-slate-950 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold tracking-tight text-center">Skills</h2>
+
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Frontend -->
+        <div
+          class="rounded-xl bg-slate-50 dark:bg-slate-900 p-6 shadow-card ring-1 ring-slate-200/60 dark:ring-slate-800">
+          <h3 class="text-lg font-semibold mb-4">Frontend</h3>
+          <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="h-5 w-5"
+                alt="HTML" />
+              HTML5
+            </li>
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="h-5 w-5"
+                alt="CSS" />
+              CSS3
+            </li>
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                class="h-5 w-5" alt="JavaScript" />
+              JavaScript (ES6+)
+            </li>
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="h-5 w-5"
+                alt="React" />
+              React.js
+            </li>
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+                class="h-5 w-5" alt="Bootstrap" />
+              Bootstrap
+            </li>
+            <li class="flex items-center gap-3">
+              <img src="./assets/tailwindcss-logotype-white.svg"
+                class="h-5 w-5" alt="Tailwind CSS" />
+              Tailwind CSS
+            </li>
+          </ul>
+        </div>
+
+        <!-- Backend -->
+        <div
+          class="rounded-xl bg-slate-50 dark:bg-slate-900 p-6 shadow-card ring-1 ring-slate-200/60 dark:ring-slate-800">
+          <h3 class="text-lg font-semibold mb-4">Backend</h3>
+          <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="h-5 w-5"
+                alt="Node.js" />
+              Node.js
+            </li>
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" class="h-5 w-5"
+                alt="Express" />
+              Express.js
+            </li>
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/api/api-original.svg" class="h-5 w-5"
+                alt="API" />
+              REST APIs
+            </li>
+            <li class="flex items-center gap-3">
+              <img
+                src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/4/jwt-icon-138bxvrhijus263d2f2wur.png/jwt-icon-aqjx58uyj3lrxtborzgyg.png?_a=DATAg1AAZAA0"
+                class="h-5 w-5" alt="JWT" />
+              JWT Authentication
+            </li>
+          </ul>
+        </div>
+
+        <!-- Database -->
+        <div
+          class="rounded-xl bg-slate-50 dark:bg-slate-900 p-6 shadow-card ring-1 ring-slate-200/60 dark:ring-slate-800">
+          <h3 class="text-lg font-semibold mb-4">Databases</h3>
+          <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="h-5 w-5"
+                alt="MongoDB" />
+              MongoDB
+            </li>
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="h-5 w-5"
+                alt="MySQL" />
+              MySQL
+            </li>
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" class="h-5 w-5"
+                alt="Oracle" />
+              Oracle
+            </li>
+          </ul>
+        </div>
+
+        <!-- DevOps & Tools -->
+        <div
+          class="rounded-xl bg-slate-50 dark:bg-slate-900 p-6 shadow-card ring-1 ring-slate-200/60 dark:ring-slate-800">
+          <h3 class="text-lg font-semibold mb-4">DevOps & Tools</h3>
+          <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="h-5 w-5"
+                alt="Git" />
+              Git
+            </li>
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="h-5 w-5"
+                alt="GitHub" />
+              GitHub Actions
+            </li>
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" class="h-5 w-5"
+                alt="Postman" />
+              Postman
+            </li>
+          </ul>
+        </div>
+
+        <!-- CMS & E-commerce -->
+        <div
+          class="rounded-xl bg-slate-50 dark:bg-slate-900 p-6 shadow-card ring-1 ring-slate-200/60 dark:ring-slate-800">
+          <h3 class="text-lg font-semibold mb-4">CMS & E-commerce</h3>
+          <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg"
+                class="h-5 w-5" alt="WordPress" />
+              WordPress
+            </li>
+            <li class="flex items-center gap-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/woocommerce/woocommerce-original.svg"
+                class="h-5 w-5" alt="WooCommerce" />
+              WooCommerce
+            </li>
+          </ul>
+        </div>
+
+        <!-- Soft Skills -->
+        <div
+          class="rounded-xl bg-slate-50 dark:bg-slate-900 p-6 shadow-card ring-1 ring-slate-200/60 dark:ring-slate-800">
+          <h3 class="text-lg font-semibold mb-4">Soft Skills</h3>
+          <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-center gap-3">🧠 Problem-solving</li>
+            <li class="flex items-center gap-3">💬 Communication</li>
+            <li class="flex items-center gap-3">⏱️ Time Management</li>
+            <li class="flex items-center gap-3">🤝 Teamwork</li>
+            <li class="flex items-center gap-3">🎨 Creativity</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="py-16 sm:py-20 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold">Certifications</h2>
+
+      <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+        <li class="rounded-xl border border-slate-200/70 dark:border-slate-800 p-5">
+          <p class="font-medium">Developing Applications with Google Cloud Specialization</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Google Cloud</p>
+        </li>
+        <li class="rounded-xl border border-slate-200/70 dark:border-slate-800 p-5">
+          <p class="font-medium">Programming Foundations: Databases</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">LinkedIn Learning</p>
+        </li>
+        <li class="rounded-xl border border-slate-200/70 dark:border-slate-800 p-5">
+          <p class="font-medium">SEO Foundations</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">LinkedIn Learning</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="py-20 bg-white dark:bg-slate-950 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold tracking-tight text-center">Education</h2>
+
+      <div class="mt-12 space-y-10">
+        <!-- B.Tech -->
+        <div class="relative border-l-4 border-brand-500 pl-6">
+          <div class="absolute -left-2 top-0 h-4 w-4 rounded-full bg-brand-500 ring-2 ring-white dark:ring-slate-950">
+          </div>
+          <div
+            class="bg-slate-50 dark:bg-slate-900 rounded-xl shadow-card ring-1 ring-slate-200/60 dark:ring-slate-800 p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <h3 class="text-lg font-semibold">B.Tech — Information Technology</h3>
+              <span class="text-sm text-slate-500 dark:text-slate-400">2022 – 2025</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+              Kanpur Institute of Technology, Kanpur
+              <br />CGPA: <span class="font-medium text-brand-600 dark:text-brand-400">7.22</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Diploma -->
+        <div class="relative border-l-4 border-brand-500 pl-6">
+          <div class="absolute -left-2 top-0 h-4 w-4 rounded-full bg-brand-500 ring-2 ring-white dark:ring-slate-950">
+          </div>
+          <div
+            class="bg-slate-50 dark:bg-slate-900 rounded-xl shadow-card ring-1 ring-slate-200/60 dark:ring-slate-800 p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <h3 class="text-lg font-semibold">Diploma — Information Technology</h3>
+              <span class="text-sm text-slate-500 dark:text-slate-400">2019 – 2022</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+              Feroze Gandhi Polytechnic, Raebareli
+              <br />Percentage: <span class="font-medium text-brand-600 dark:text-brand-400">77%</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- XII -->
+        <div class="relative border-l-4 border-brand-500 pl-6">
+          <div class="absolute -left-2 top-0 h-4 w-4 rounded-full bg-brand-500 ring-2 ring-white dark:ring-slate-950">
+          </div>
+          <div
+            class="bg-slate-50 dark:bg-slate-900 rounded-xl shadow-card ring-1 ring-slate-200/60 dark:ring-slate-800 p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <h3 class="text-lg font-semibold">XII — CISCE Board</h3>
+              <span class="text-sm text-slate-500 dark:text-slate-400">2018</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+              Radha Krishna Memorial Education Center, Raebareli
+              <br />Percentage: <span class="font-medium text-brand-600 dark:text-brand-400">48%</span>
+            </p>
+          </div>
+        </div>
+        <!-- X -->
+        <div class="relative border-l-4 border-brand-500 pl-6">
+          <div class="absolute -left-2 top-0 h-4 w-4 rounded-full bg-brand-500 ring-2 ring-white dark:ring-slate-950">
+          </div>
+          <div
+            class="bg-slate-50 dark:bg-slate-900 rounded-xl shadow-card ring-1 ring-slate-200/60 dark:ring-slate-800 p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <h3 class="text-lg font-semibold">X — CISCE Board</h3>
+              <span class="text-sm text-slate-500 dark:text-slate-400">2016</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+              Radha Krishna Memorial Education Center, Raebareli
+              <br />Percentage: <span class="font-medium text-brand-600 dark:text-brand-400">60%</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 sm:py-20 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold">Contact</h2>
+      <p class="mt-3 text-slate-600 dark:text-slate-300">
+        I’d love to hear about your project or collaboration ideas. Email me or connect on LinkedIn.
+      </p>
+
+      <div class="mt-6 grid sm:grid-cols-2 gap-4">
+        <a href="mailto:kushwahavijay234@gmail.com"
+          class="flex items-center gap-3 rounded-xl border border-slate-200/70 dark:border-slate-800 p-4 hover:shadow-card transition">
+          <!-- Heroicon: Envelope -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-600" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M3 8l9 6 9-6M21 8v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8" />
+          </svg>
+          <div>
+            <div class="text-sm font-medium">Email</div>
+            <div class="text-xs text-slate-500 dark:text-slate-400">kushwahavijay234@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/kushvijay234/" target="_blank" rel="noopener"
+          class="flex items-center gap-3 rounded-xl border border-slate-200/70 dark:border-slate-800 p-4 hover:shadow-card transition">
+          <!-- Heroicon: Globe Alt -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-600" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 0c2.5-2.5 2.5-9.5 0-12 2.5 2.5 9.5 2.5 12 0-2.5 2.5-9.5 2.5-12 0" />
+          </svg>
+          <div>
+            <div class="text-sm font-medium">LinkedIn</div>
+            <div class="text-xs text-slate-500 dark:text-slate-400">linkedin.com/in/kushvijay234</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div
+        class="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+        <p>© <span id="year"></span> Vijay Kumar Kushwaha. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a class="hover:underline" href="https://github.com/kushvijay234" target="_blank" rel="noopener">GitHub</a>
+          <a class="hover:underline" href="mailto:kushwahavijay234@gmail.com">Email</a>
+          <a class="hover:underline" href="https://www.linkedin.com/in/kushvijay234/" target="_blank"
+            rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+  <script>
+      // Respect system theme on first load
+      (function initTheme() {
+        const stored = localStorage.getItem('theme')
+        if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+      })()
+  </script>
+
+</body>
+
+</html>
