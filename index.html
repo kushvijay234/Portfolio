@@ -1,32 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
+  <!-- Basic Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vijay Kumar Kushwaha — MERN Stack Developer</title>
-  <meta name="description"
-    content="MERN Stack Developer specializing in React, Node.js, Express, MongoDB. Portfolio, projects, experience, and contact." />
-  <meta property="og:title" content="Vijay Kumar Kushwaha — MERN Stack Developer" />
-  <meta property="og:description"
-    content="Full Stack Developer specializing in the MERN Stack with measurable results and clean UI/UX." />
-  <meta property="og:type" content="website" />
+  <title>Vijay Kumar Kushwaha — MERN Stack Developer | Portfolio</title>
+  <meta name="description" content="I'm Vijay Kumar Kushwaha, a passionate MERN Stack Developer skilled in React, Node.js, Express, and MongoDB. Explore my portfolio, projects, and professional journey." />
+  <meta name="keywords" content="Vijay Kumar Kushwaha, MERN Stack Developer, React Developer, Node.js Developer, MongoDB, Full Stack Developer, Portfolio, Web Developer, Freelancer, JavaScript Developer" />
+  <meta name="author" content="Vijay Kumar Kushwaha" />
+  <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0ea5e9" />
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://kushvijay234.github.io/Portfolio/" />
+
+  <!-- Open Graph Meta (for Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content="Vijay Kumar Kushwaha — MERN Stack Developer | Portfolio" />
+  <meta property="og:description" content="MERN Stack Developer specializing in React, Node.js, Express, and MongoDB. Explore my projects, experience, and contact details." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kushvijay234.github.io/Portfolio/" />
+  <meta property="og:image" content="https://kushvijay234.github.io/Portfolio/assets/profile.jpg" />
+
+  <!-- Twitter Card Meta -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vijay Kumar Kushwaha — MERN Stack Developer" />
+  <meta name="twitter:description" content="MERN Stack Developer specializing in React, Node.js, Express, and MongoDB. Explore my work and contact me for collaborations." />
+  <meta name="twitter:image" content="https://kushvijay234.github.io/Portfolio/assets/profile.jpg" />
+
+  <!-- JSON-LD Schema for Google Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Vijay Kumar Kushwaha",
+    "url": "https://kushvijay234.github.io/Portfolio/",
+    "image": "https://kushvijay234.github.io/Portfolio/assets/profile.jpg",
+    "jobTitle": "MERN Stack Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Tata Consultancy Services"
+    },
+    "description": "Full Stack Developer experienced in building modern web applications using the MERN stack.",
+    "sameAs": [
+      "https://github.com/kushvijay234",
+      "https://www.linkedin.com/in/vijaykushwaha234/",
+      "https://x.com/futuretechzone"
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSRP0D7D4C"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-VSRP0D7D4C');
   </script>
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind config (accent colors + font)
     tailwind.config = {
       theme: {
         extend: {
@@ -41,29 +75,28 @@
               600: '#2563eb',
               700: '#1d4ed8',
               800: '#1e40af',
-              900: '#1e3a8a',
-            },
+              900: '#1e3a8a'
+            }
           },
           boxShadow: {
-            'card': '0 10px 30px rgba(0,0,0,0.08)',
-          },
+            card: '0 10px 30px rgba(0,0,0,0.08)'
+          }
         },
         fontFamily: {
-          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial'],
-        },
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial']
+        }
       },
-      darkMode: 'class',
-    }
+      darkMode: 'class'
+    };
   </script>
 
-  <!-- Inter font -->
+  <!-- Fonts & Favicon -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-
-  <!-- Favicon (open-source emoji style) -->
   <link rel="icon" href="https://unpkg.com/emoji-datasource-apple/img/apple/64/1f4bb.png" />
 </head>
+
 
 <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
   <!-- Header -->
